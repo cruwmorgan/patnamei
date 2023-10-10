@@ -5,12 +5,12 @@
 : Node.js Express.js " Basic Auth System "
 
 
-The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
+The console is the first segment of my Webstack - Portfolio Project that will collectively cover fundamental concepts of Back-end short specializations programme. The goal of Patnamei project is to eventually deploy our server a simple copy of the Patnamei consultation site. A command interpreter is created in this segment to manage objects for the Patnamei website.
 
 ## Description
 
-This Project AirBnB application and website, including the database, storage, RESTful API, Web Framework, and Front End.
-Currently the application is designed to run with 2 storage engine models:
+This Project Patnamei application and website, including the database, storage, RESTful API, Web Framework, and Front End.
+Currently the application is designed to run with 1 storage engine models:
 
 
 ## Authors
