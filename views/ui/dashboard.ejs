@@ -120,7 +120,13 @@
                                     </div>
                                     <div class="stat-content dib">
                                         <div class="stat-text">Total Appointments</div>
-                                        <div class="stat-digit">1,012</div>
+                                        <div class="stat-digit">
+                                            <% if (mail.length) { %>
+                                            <%= mail.length %>
+                                            <% } else { %>
+                                                0
+                                            <% } %>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -142,20 +148,26 @@
                                             </tr>
                                           </thead>
                                           <tbody>
+                                                <% if (mail.length) { %>
+                                                <% mail.forEach((mail) => { %>
                                               <tr>
-                                                  <td></td>
-                                                  <td></td>
-                                                  <td></td>
+                                                    <td><%= mail.subject %></td>
+                                                    <td><%= mail.message %></td>
+                                                    <td><%= mail.createdAt %></td>
+                                                    <% }); %>
+                                                    <% } else {%>
+                                                        <p>No Appointment yet.</p>
                                               </tr>
+                                              <% } %>
                                           </tbody>
                                         </table>
                                     </div>
                                 </div>
-                            </div>
+                            </div><br><br><br><br>
                             <div class="modal fade" id="disback" tabindex="-1" data-bs-backdrop="false" >
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content text-center" style="background-color: rgba(0, 0, 0, 0.9);color:white;">
-                                    <form method="post" action="/makedate">
+                                    <form method="post" id="makedate">
                                         <div class="modal-title">
                                             <h5 class="text-warning">Request Appointment</h5>
                                             <p class="text-primary">You will receive an email upon agreement of a meeting by the Consultancy Board.</p>
@@ -166,7 +178,6 @@
                                                 <div class="input-group mb-3">
                                                       <span class="input-group-text" id="basic-addon3"><i class="ti-package text-success"></i></span>
                                                       <input type="hidden" class="form-control" name="email" value="<%= email %> ">
-                                                      <input type="hidden" class="form-control" name="id" value="<%= id %> ">
                                                       <input type="text" class="form-control" name="subject" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -235,6 +246,7 @@
             $('#logout').attr('href', `../disconnect?token=${token}`);
             $('#profile').attr('href', `profile?token=${token}`);
             $('#gohome').attr('href', `me?token=${token}`);
+            $('#makedate').attr('action', `makedate?token=${token}`);
             $('#mymodalon').click(function(event){
                 $('#disback').modal('show');
             });        

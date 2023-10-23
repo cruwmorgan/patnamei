@@ -60,8 +60,12 @@ router.get('/users/profile', (req, res) => {
   UsersController.getProfile(req, res);
 });
 
-router.get('/users/changepass', (req, res) => {
+router.post('/users/changepass', (req, res) => {
   UsersController.getChange(req, res);
+});
+
+router.post('/users/makedate', (req, res) => {
+  UsersController.postMail(req, res);
 });
 
 

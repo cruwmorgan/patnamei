@@ -44,11 +44,7 @@ class DBClient {
         );
 
       this.mailschema = new Schema({
-          fullname: {
-            type: String,
-            required: [true, 'Please add a text value'],
-          },
-          uname: {
+          myuser: {
             type: String,
             required: [true, 'Please add a text value'],
           },
@@ -56,7 +52,11 @@ class DBClient {
             type: String,
             required: [true, 'Please add a text value'],
           },
-          password: {
+          message: {
+            type: String,
+            required: [true, 'Please add a text value'],
+          },
+          subject: {
             type: String,
             required: [true, 'Please add a text value'],
           },

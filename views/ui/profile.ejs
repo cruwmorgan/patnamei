@@ -164,7 +164,6 @@
                                                 <div class="input-group mb-3">
                                                       <span class="input-group-text" id="basic-addon3"><i class="ti-package text-success"></i></span>
                                                       <input type="hidden" class="form-control" name="email" value="<%= email %> ">
-                                                      <input type="hidden" class="form-control" name="id" value="<%= id %> ">
                                                       <input type="text" class="form-control" name="subject" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -233,6 +232,8 @@
             $('#logout').attr('href', `../disconnect?token=${token}`);
             $('#profile').attr('href', `profile?token=${token}`);
             $('#gohome').attr('href', `me?token=${token}`);
+            $('#passform').attr('action', `changepass?token=${token}`);
+            $('#makedate').attr('action', `makedate?token=${token}`);
             $('#mymodalon').click(function(event){
                 $('#disback').modal('show');
             });        
