@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="focus" />
+    <title>Patnamei - User Profile</title>
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Styles -->
+    <link href="../css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/lib/themify-icons.css" rel="stylesheet">
+    <link href="../css/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="../css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/lib/helper.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <div class="logo"><a>
+                            <!-- <img src="../images/logo.png" alt="" /> --><span>Focus</span></a></div>
+                    
+                    <li class="label">Menu</li>
+                    
+                    <li><a id="logout"><i class="ti-power-off"></i> Log-Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /# sidebar -->
+
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="float-left">
+                        <div class="hamburger sidebar-toggle">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="float-right">
+                        
+                        <div class="dropdown dib">
+                            <div class="header-icon" data-toggle="dropdown">
+                                <span class="user-avatar"><%= username %> 
+                                    <i class="ti-angle-down f-s-10"></i>
+                                </span>
+                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
+                                    
+                                    <div class="dropdown-content-body">
+                                        <ul>
+                                            <li>
+                                                <a id="profile">
+                                                    <i class="ti-user"></i>
+                                                    <span>Profile</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Hello <%= username %> , <span>Welcome Here</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="user-profile">
+                                <div class="row">
+                                  <div class="col-lg-4">
+                                    <div class="user-work">
+                                      <h4>User Info</h4>
+                                      <div class="work-content">
+                                        <h3>Full Name</h3>
+                                        <p><%= fname %></p>
+                                      </div>
+                                      <div class="work-content">
+                                        <h3>Username</h3>
+                                        <p><%= username %></p>
+                                      </div>
+                                      <div class="work-content">
+                                        <h3>Email Address</h3>
+                                        <p><%= email %></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-8">
+                                    <div class="user-profile-name">Change Password</div>
+                                    <form id="passform" method="POST">
+                                        <div class="row mb-5">
+                                          <div class="col-sm-12">
+                                            
+                                            <label for="basic-url" class="form-label">Please input new password</label>
+                                            <div class="input-group mb-3">
+                                              <span class="input-group-text" id="basic-addon3"><i class="mdi ti-key text-success"></i></span>
+                                              <input type="text" class="form-control" name="password">
+                                            </div>
+
+                                          </div>
+                                        </div>
+                                       
+                                      
+                                        <div class="row mb-5">
+                                          <div class="col-sm-12">
+                                           <button class="btn btn-primary w-100" type="button" id="chgps">Make settings</button>
+                                          </div>
+                                        </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal fade" id="disback" tabindex="-1" data-bs-backdrop="false" >
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content text-center" style="background-color: rgba(0, 0, 0, 0.9);color:white;">
+                                    <form method="post" action="/makedate">
+                                        <div class="modal-title">
+                                            <h5 class="text-warning">Request Appointment</h5>
+                                            <p class="text-primary">You will receive an email upon agreement of a meeting by the Consultancy Board.</p>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <div class="row mb-5">
+                                                <label for="basic-url" class="form-label">Subject</label>
+                                                <div class="input-group mb-3">
+                                                      <span class="input-group-text" id="basic-addon3"><i class="ti-package text-success"></i></span>
+                                                      <input type="hidden" class="form-control" name="email" value="<%= email %> ">
+                                                      <input type="hidden" class="form-control" name="id" value="<%= id %> ">
+                                                      <input type="text" class="form-control" name="subject" aria-describedby="basic-addon3">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-5">                                            
+                                                <label for="basic-url" class="form-label">Cover Letter/Message</label>
+                                                <div class="input-group mb-3">
+                                                  <span class="input-group-text" id="basic-addon3"><i class="ti-comments-smiley text-success"></i></span>
+                                                  <textarea class="form-control" name="mail" rows="5" style="height: 150px;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          <button type="submit" class="btn btn-primary w-25">Submit</button>
+                                        </div>
+                                    </form>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="footer fixed-bottom mt-auto"style="background:white;margin-left: 0px;">
+                  <br>
+                  <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
+                    <li class="nav-item flex-fill" role="presentation">
+                      <a id="gohome" class=" d-flex align-items-center justify-content-center"><i class="ti-home ti-3x"></i></a>
+                      <button class="nav-link w-100 " id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home" aria-selected="false" style="border-bottom-color:blue;"><a id="gohome">Home</a></button>
+                    </li>
+                    <li class="nav-item flex-fill" role="presentation">
+                      <a id="mymodalon" class=" d-flex align-items-center justify-content-center"><i class="ti-email"></i></a>
+                      <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" dat-batts-target="#bordered-justified-contact" type="button" role="tab" aria-controls="contact" aria-selected="false"><a id="mymodalon">Appointment</a></button>
+                    </li>
+                  </ul>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery vendor -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="../js/lib/menubar/sidebar.js"></script>
+    <script src="../js/lib/preloader/pace.min.js"></script>
+    <!-- sidebar -->
+
+    <script src="../js/lib/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
+    <!-- bootstrap -->
+    <!-- scripit init-->
+    <!-- <script src="../js/dashboard2.js"></script> -->
+    <script>
+        $(document).ready(function(){
+            function GetParameterValues(param) {
+                var url = window.location.href.slice(window.location.href.indexOf('?') + 1);
+                var urlparam = url.split('=');
+                return urlparam[1];
+            }
+            const token = GetParameterValues('token');
+            $('#logout').attr('href', `../disconnect?token=${token}`);
+            $('#profile').attr('href', `profile?token=${token}`);
+            $('#gohome').attr('href', `me?token=${token}`);
+            $('#mymodalon').click(function(event){
+                $('#disback').modal('show');
+            });        
+        });
+    </script>
+</body>
+
+</html>
