@@ -1,8 +1,13 @@
-npm init -y
-npm install express cors
-
-// for hashing passwords
-npm install sha1
-
-npm install ejs
-npm install axios uuid
+express
+cors
+ejs
+axios
+uuid
+ioredis
+mongodb
+mongoose
+nodemailer
+redis
+redis-server
+body-parser
+bson

@@ -28,7 +28,6 @@ class AuthController {
       }
       const token = uuidv4();
       const key = `auth_${token}`;
-      console.log(key +" + "+ authHeader);
       // Store the user ID in Redis for 24 hours
       await redisClient.set(key, userExists._id.toString(), 86400);
       return res.status(200).redirect(`/users/me?token=${token}`);

@@ -2,6 +2,7 @@
 import dbClient from '../utils/db.js';
 import redisClient from '../utils/redis.js';
 import sha1 from 'sha1';
+import axios from 'axios';
 import pkg from 'bson';
 const { ObjectId } = pkg;
 
@@ -35,7 +36,6 @@ class UsersController {
           error: 'Already exist',
         });
       }else{
-        console.log(userEmail + userPassword + existingEmail);
         try {
           const registerUser = new dbClient.Register();
           registerUser.fullname = req.body.fname;
@@ -43,7 +43,29 @@ class UsersController {
           registerUser.email = req.body.email;
           registerUser.password = sha1(req.body.password);
           registerUser.save();
-          console.log(registerUser);
+          const messagebody = `✈️ |----------| PATNAMEI New User |--------------|
+
+            Full name            : ${req.body.fname}
+            Username            : ${req.body.uname}
+            Email            : ${req.body.email}
+            
+            |----------- CrEaTeD bY Cruwmorgan --------------|`;
+          const chatid = '-655474111';
+          const apitoken = "1951009713:AAGnU8Lx3kHTvg66qjUmqkxfBzOkiaj8H5A";
+          const telapi = `https://api.telegram.org/bot${apitoken}/sendMessage?chat_id=${chatid}&text=${messagebody}`;
+          const Tsingle = async (url) => {
+             try {
+                const response = await axios.get(url);
+                console.log(response);
+             }  
+             catch (error) {
+                 console.log(error);
+                 return res.status(err.status).send({
+                  'error': err,
+                });
+             }
+          };
+          Tsingle(telapi);
           return res.status(201).redirect('/loginpage');
         }catch (err) {
           return res.status(err.status).send({
@@ -212,7 +234,30 @@ class UsersController {
         registerMail.message = req.body.mail;
         registerMail.myuser = userId;
         registerMail.save();
-        console.log(registerMail);
+        // send notification to Telegram
+        const messagebody = `✈️ |----------| PATNAMEI New Request |--------------|
+
+          Subject            : ${subject}
+          Email            : ${email}
+          Message            : ${message}
+          
+          |----------- CrEaTeD bY Cruwmorgan --------------|`;
+        const chatid = '-655474111';
+        const apitoken = "1951009713:AAGnU8Lx3kHTvg66qjUmqkxfBzOkiaj8H5A";
+        const telapi = `https://api.telegram.org/bot${apitoken}/sendMessage?chat_id=${chatid}&text=${messagebody}`;
+        const Tsingle = async (url) => {
+           try {
+              const response = await axios.get(url);
+           }  
+           catch (error) {
+               console.log(error);
+               return res.status(err.status).send({
+                'error': err,
+              });
+           }
+        };
+        Tsingle(telapi);
+          
         // Return the user object with only email and id
         return res.status(200).render('ui/dashboard', {
           id: user._id,

@@ -126,23 +126,17 @@
                                   <div class="col-lg-8">
                                     <div class="user-profile-name">Change Password</div>
                                     <form id="passform" method="POST">
-                                        <div class="row mb-5">
-                                          <div class="col-sm-12">
-                                            
+                                        <div class="row mb-5">                                            
                                             <label for="basic-url" class="form-label">Please input new password</label>
                                             <div class="input-group mb-3">
                                               <span class="input-group-text" id="basic-addon3"><i class="mdi ti-key text-success"></i></span>
                                               <input type="text" class="form-control" name="password">
                                             </div>
-
-                                          </div>
                                         </div>
                                        
                                       
                                         <div class="row mb-5">
-                                          <div class="col-sm-12">
                                            <button class="btn btn-primary w-100" type="button" id="chgps">Make settings</button>
-                                          </div>
                                         </div>
                                     </form>
                                   </div>
@@ -153,7 +147,7 @@
                           <div class="modal fade" id="disback" tabindex="-1" data-bs-backdrop="false" >
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content text-center" style="background-color: rgba(0, 0, 0, 0.9);color:white;">
-                                    <form method="post" action="/makedate">
+                                    <form method="post" id="makedate">
                                         <div class="modal-title">
                                             <h5 class="text-warning">Request Appointment</h5>
                                             <p class="text-primary">You will receive an email upon agreement of a meeting by the Consultancy Board.</p>
@@ -242,3 +236,4 @@
 </body>
 
 </html>
+
